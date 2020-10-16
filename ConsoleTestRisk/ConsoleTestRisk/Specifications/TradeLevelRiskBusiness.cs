@@ -1,32 +1,28 @@
-﻿using ConsoleTestRisk.Domain;
+﻿using ConsoleTestRisk.AbstractFactory.Interface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace ConsoleTestRisk.Specifications
 {
-    public class TradeLevelRiskBusiness : ISpecification<Categories>
+    public class TradeLevelRiskBusiness : ISpecification<ICategories>
     {
-        public Client Client { get; private set; }
-
+        public readonly ITrade _trade;
         public string RiskClient { get; private set; }
-
-        public TradeLevelRiskBusiness(Client client)
+        public TradeLevelRiskBusiness(ITrade trade)
         {
-            Client = client;
+            _trade = trade;
         }
-
-        public bool IsSatisfiedBy(List<Categories> categories)
+        public bool IsSatisfiedBy(List<ICategories> categories)
         {
-            var categoriestrade = categories.Where(x => x.ClientSector == Client.ClientSector).ToList();
+            var categoriestrade = categories.Where(x => x.ClientSector == _trade.ClientSector).ToList();
             foreach (var categorie in categoriestrade)
             {
                 ELevelRisk eLevelRisk = (ELevelRisk)Enum.Parse(typeof(ELevelRisk), categorie.LevelCategory, true);
                 switch (eLevelRisk)
                 {
                     case ELevelRisk.LowRisk:
-                        if (Client.ValueClient < categorie.ValueCategory)
+                        if (_trade.ValueClient < categorie.ValueCategory)
                         {
                             RiskClient = categorie.LevelCategory;
                             return true;
@@ -34,7 +30,7 @@ namespace ConsoleTestRisk.Specifications
                         break;
                     case ELevelRisk.MediumRisk:
                     case ELevelRisk.HighRisk:
-                        if (Client.ValueClient >= categorie.ValueCategory)
+                        if (_trade.ValueClient >= categorie.ValueCategory)
                         {
                             RiskClient = categorie.LevelCategory;
                             return true;
