@@ -4,9 +4,9 @@ namespace ConsoleTestRisk.Interface
 {
     public interface IOperationsBasicRepository<Entity>
     {
-        void Insert(Entity entity);
-        void Update(Entity entity);
-        void Delete(Entity entity);
+        bool Insert(Entity entity);
+        bool Update(Entity entity);
+        bool Delete(Entity entity);
         IEnumerable<Entity> Get();
         Entity GetID(int Id);
     }

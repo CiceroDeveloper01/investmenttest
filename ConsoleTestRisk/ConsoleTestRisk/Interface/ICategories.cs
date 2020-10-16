@@ -6,10 +6,10 @@ namespace ConsoleTestRisk.AbstractFactory.Interface
 {
     public interface ICategories
     {
-        int IDCategorie { get; }
-        string NameCategory { get; }
-        string LevelCategory { get; }
-        double ValueCategory { get; }
-        string ClientSector { get; }
+        int IDCategorie { get; set; }
+        string NameCategory { get; set; }
+        string LevelCategory { get; set; }
+        double ValueCategory { get; set; }
+        string ClientSector { get; set; }
     }
 }

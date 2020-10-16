@@ -8,7 +8,7 @@ namespace ConsoleTestRisk.Repository
 {
     public class ClientRepository : IOperationsBasicRepository<Client>
     {
-        public void Delete(Client entity)
+        public bool Delete(Client entity)
         {
             //Usar algum modelo de ir até o Banco de Dados
             throw new NotImplementedException();
@@ -26,13 +26,13 @@ namespace ConsoleTestRisk.Repository
             throw new NotImplementedException();
         }
 
-        public void Insert(Client entity)
+        public bool Insert(Client entity)
         {
             //Usar algum modelo de ir até o Banco de Dados
             throw new NotImplementedException();
         }
 
-        public void Update(Client entity)
+        public bool Update(Client entity)
         {
             //Usar algum modelo de ir até o Banco de Dados
             throw new NotImplementedException();

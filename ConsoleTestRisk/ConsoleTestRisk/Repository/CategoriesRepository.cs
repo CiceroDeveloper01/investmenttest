@@ -7,7 +7,7 @@ namespace ConsoleTestRisk.Repository
 {
     class CategoriesRepository : IOperationsBasicRepository<Categories>
     {
-        public void Delete(Categories entity)
+        public bool Delete(Categories entity)
         {
             //Usar algum modelo de ir até o Banco de Dados
             throw new NotImplementedException();
@@ -25,13 +25,13 @@ namespace ConsoleTestRisk.Repository
             throw new NotImplementedException();
         }
 
-        public void Insert(Categories entity)
+        public bool Insert(Categories entity)
         {
             //Usar algum modelo de ir até o Banco de Dados
             throw new NotImplementedException();
         }
 
-        public void Update(Categories entity)
+        public bool Update(Categories entity)
         {
             //Usar algum modelo de ir até o Banco de Dados
             throw new NotImplementedException();

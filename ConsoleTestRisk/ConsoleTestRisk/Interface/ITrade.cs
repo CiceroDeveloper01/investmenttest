@@ -6,9 +6,9 @@ namespace ConsoleTestRisk.AbstractFactory.Interface
 {
     public interface ITrade
     {
-        int IDClient { get; }
-        string Name { get;  }
-        double ValueClient { get; }
-        string ClientSector { get; }
+        int IDClient { get; set; }
+        string Name { get; set; }
+        double ValueClient { get; set; }
+        string ClientSector { get; set; }
     }
 }
